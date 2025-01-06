@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="numberFormat.js"></script>
+    <script src="regex.js"></script>
+    <script src="record.js"></script>
+    <script src="common.js"></script>
+</head>
+
+<body>
+    <div class="table-container">
+        <div>
+            <table class="records-table">
+                <thead>
+                    <tr >
+                        <th colspan="3">분배 기록</th>
+                    </tr>
+                    <tr>
+                        <th>날짜</th>
+                        <th>닉네임</th>
+                        <th>골드</th>
+                    </tr>
+                </thead>
+                <tbody id="records-body">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div id="recordInput" style="width: 210px;">
+            <div id="uploadDiv">
+                <p style="font-size: 12px;">
+                    파일선택 : 분배기록데이터.json 파일을 업로드 하면 됩니다.
+                </p>
+                <input type="file" id="fileInput" accept=".json" onchange="fileUpload(event);"/>
+            </div> 
+            <div>
+                <p style="font-size: 12px;">
+                    파일다운로드 : 분배기록데이터.json 파일을 현재 기록으로 다운로드합니다.
+                </p>
+                <button type="button" onclick="download();">파일 다운로드</button>
+            </div>
+            <div>
+                <label for="date">날짜 :</label>
+                <input type="text" oninput="onlyNumber(this);"id="date" placeholder="20241128" maxlength="8">
+            </div>
+            <div>
+                <label for="name">이름 :</label>
+                <input type="text" id="name" placeholder="Victory">
+            </div>
+            <div>
+                <label for="gold">골드 :</label>
+                <input type="number" id="gold" placeholder="302" min="0">
+            </div>
+            <div>
+                <button style="margin-top : 10px; float: right;" type="button" onclick="addRecord();">기록 추가</button>
+            </div>
+        </div>        
+        <div>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th colspan="3" >통계</th>
+                    </tr>
+                    <tr>
+                        <th>최근 분배 기록</th>
+                        <th>닉네임</th>
+                        <th>총 분배 골드</th>
+                    </tr>
+                </thead>
+                <tbody id="stats-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
